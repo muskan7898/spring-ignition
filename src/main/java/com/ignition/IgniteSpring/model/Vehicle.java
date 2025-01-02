@@ -13,6 +13,8 @@ public class Vehicle {
     private Long id;
 
     private String model;
+
+    @Column(name = "\"year\"") // Escape reserved keyword
     private int year;
     private String status;
 

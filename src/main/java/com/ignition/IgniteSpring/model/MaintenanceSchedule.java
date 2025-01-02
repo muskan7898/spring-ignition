@@ -15,6 +15,5 @@ public class MaintenanceSchedule {
 
     @Column(nullable = false)
     private Long vehicleId;
-
     private String serviceDetail;
 }
