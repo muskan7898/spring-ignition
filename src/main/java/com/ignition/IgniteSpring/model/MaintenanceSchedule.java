@@ -1,11 +1,20 @@
 package com.ignition.IgniteSpring.model;
 
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
 
+@Entity
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MaintenanceSchedule {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long vehicleId;
-    private String serviceDetail;
 
+    @Column(nullable = false)
+    private Long vehicleId;
+
+    private String serviceDetail;
 }
