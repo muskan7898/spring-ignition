@@ -23,4 +23,24 @@ public class VehicleBookingService {
         jpaQuery.setParameter("date", date);
         return jpaQuery.getResultList();
     }
+    public List getVehicleWithoutAnyBooking(){
+        String query = "SELECT v.id, v.type, v.model, v.year, v.status" +
+                "FROM Vehicle v" +
+                "LEFT JOIN VehicleBooking vb ON v.id = vb.vehicleId" +
+                "WHERE vb.bookingId IS NULL";
+
+        Query jpaQuery = entityManager.createQuery(query);
+        return jpaQuery.getResultList();
+    }
+
+    public List countBookingPerVehicleType(){
+        String query = "SELECT vt.typeName, COUNT(vb.bookingId) AS bookingCount" +
+                "FROM VehicleType vt" +
+                "JOIN Vehicle v ON vt.typeId = v.type" +
+                "LEFT JOIN VehicleBooking vb ON v.id = vb.vehicleId" +
+                "GROUP BY vt.typeName";
+        Query jpaQuery = entityManager.createQuery(query);
+        return jpaQuery.getResultList();
+    }
 }
+

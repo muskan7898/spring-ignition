@@ -17,4 +17,15 @@ public class VehicleBookingController {
     public List<Object[]> getVehiclesBookedOnSpecificDate(@RequestParam("date") String date) {
         return vehicleBookingService.getVehiclesBookedOnSpecificDate(date);
     }
+
+    @GetMapping("/VehicleWithoutAnyBooking")
+    public List getVehicleWithoutAnyBooking(){
+        return vehicleBookingService.getVehicleWithoutAnyBooking();
+    }
+
+    @GetMapping("/BookingPerVehicleType")
+    public List getCountBookingPerVehicleType(){
+        return vehicleBookingService.countBookingPerVehicleType();
+    }
+
 }
