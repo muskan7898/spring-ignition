@@ -1,5 +1,5 @@
 package com.ignition.IgniteSpring.controller;
 
-public class vehicalController {
+public class BookingController {
 
 }
