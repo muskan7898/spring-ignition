@@ -13,7 +13,6 @@ import java.util.List;
 public class MaintenanceController {
 
     private final MaintenanceService maintenanceService;
-
     @GetMapping("/upcoming-schedule")
     public ResponseEntity<List<?>> getUpcomingMaintenanceSchedule() {
         List<?> schedule = maintenanceService.getUpcomingMaintenanceSchedule();

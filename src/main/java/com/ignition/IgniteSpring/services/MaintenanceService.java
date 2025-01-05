@@ -1,22 +1,23 @@
 package com.ignition.IgniteSpring.services;
 
-import jakarta.persistence.*;
+import com.ignition.IgniteSpring.model.MaintenanceSchedule;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 
 @Service
-public class MaintenanceService{
+public class MaintenanceService {
+
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List getUpcomingMaintenanceSchedule(){
-        String query = "SELECT ms.*" +
-                "FROM MaintenanceSchedule ms" +
-                "WHERE ms.serviceDetail > CURRENT_DATE";
+    public List<?> getUpcomingMaintenanceSchedule() {
+        String query = "SELECT ms FROM MaintenanceSchedule ms WHERE ms.serviceDetail > CURRENT_DATE";
 
-        Query jpaQuery = entityManager.createQuery(query);
+        TypedQuery<?> jpaQuery = entityManager.createQuery(query, MaintenanceSchedule.class);
         return jpaQuery.getResultList();
     }
 }
