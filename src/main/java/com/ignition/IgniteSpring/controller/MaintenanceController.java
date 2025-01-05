@@ -1,21 +1,21 @@
 package com.ignition.IgniteSpring.controller;
 
-
 import com.ignition.IgniteSpring.services.MaintenanceService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/maintenance")
-public class MaintenceController {
-    @Autowired
-    private MaintenanceService maintenanceService;
+@RequiredArgsConstructor
 
-    @GetMapping("upcomingSchedule")
-    public List getUpcomingMaintenanceSchedule(){
+public class MaintenanceController {
+
+    private final MaintenanceService maintenanceService;
+
+    @GetMapping("/upcoming-schedule")
+    public List getUpcomingMaintenanceSchedule() {
         return maintenanceService.getUpcomingMaintenanceSchedule();
     }
 }

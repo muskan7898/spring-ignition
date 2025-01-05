@@ -14,8 +14,7 @@ public class Vehicle {
 
     private String model;
 
-    @Column(name = "\"year\"") // Escape reserved keyword
-    private int year;
+    private int ManufactureYear;
     private String status;
 
     @Column(nullable = false)
