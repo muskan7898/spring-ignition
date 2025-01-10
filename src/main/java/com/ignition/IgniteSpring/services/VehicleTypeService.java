@@ -5,6 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class VehicleService {
-
+public class VehicleTypeService {
 }

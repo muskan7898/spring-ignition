@@ -8,12 +8,11 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MaintenanceSchedule {
+public class VehicleBooking {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private Long vehicleId;
-    private String serviceDetail;
+    private Long VehicleId;
+    private Long BookingId;
 }
+

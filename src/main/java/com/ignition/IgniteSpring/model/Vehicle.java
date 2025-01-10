@@ -13,7 +13,8 @@ public class Vehicle {
     private Long id;
 
     private String model;
-    private int year;
+
+    private int ManufactureYear;
     private String status;
 
     @Column(nullable = false)
