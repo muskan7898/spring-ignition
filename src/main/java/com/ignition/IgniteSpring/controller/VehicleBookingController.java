@@ -12,4 +12,5 @@ import org.springframework.web.bind.annotation.*;
 public class VehicleBookingController {
     private final VehicleBookingService vehicleBookingService;
 
+
 }
